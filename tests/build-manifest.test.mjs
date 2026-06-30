@@ -4,6 +4,7 @@ import { rm, mkdtemp, readFile, writeFile, mkdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { buildManifest } from '../scripts/build-manifest.mjs';
+import MiniSearch from 'minisearch';
 
 const FIXTURES = new URL('./fixtures/content', import.meta.url).pathname;
 
@@ -110,5 +111,20 @@ test('unresolved wikilink emits a warning, not an error', async () => {
     const result = await buildManifest({ contentDir: dir, outDir: out });
     assert.ok(result.warnings.some((w) => /unresolved wikilink "ghost"/.test(w)));
     await rm(dir, { recursive: true, force: true });
+  });
+});
+
+test('search-index.json is a valid MiniSearch index, finds entries by body text', async () => {
+  await withTempOut(async (out) => {
+    const FIXTURES = new URL('./fixtures/content', import.meta.url).pathname;
+    await buildManifest({ contentDir: FIXTURES, outDir: out });
+    const raw = await readFile(join(out, 'search-index.json'), 'utf8');
+    const index = MiniSearch.loadJSON(raw, {
+      fields: ['title', 'body', 'tags', 'summary'],
+      storeFields: ['slug', 'title', 'section', 'path', 'summary'],
+    });
+    const hits = index.search('symmetric');
+    assert.ok(hits.length >= 1);
+    assert.equal(hits[0].slug, 'cryptography');
   });
 });

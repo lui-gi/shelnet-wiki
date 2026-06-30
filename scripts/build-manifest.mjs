@@ -6,6 +6,7 @@ import { readdir, readFile, mkdir, writeFile, copyFile, stat } from 'node:fs/pro
 import { join, relative, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
+import MiniSearch from 'minisearch';
 
 const SECTIONS = ['notes', 'writeups', 'guides'];
 const REQUIRED = ['title', 'slug', 'section', 'path', 'tags', 'created', 'updated', 'summary'];
@@ -129,6 +130,23 @@ export async function buildManifest({ contentDir, outDir }) {
     await mkdir(dirname(dest), { recursive: true });
     await copyFile(file, dest);
   }
+
+  // Build and emit pre-serialized MiniSearch index.
+  const searchIndex = new MiniSearch({
+    idField: 'slug',
+    fields: ['title', 'body', 'tags', 'summary'],
+    storeFields: ['slug', 'title', 'section', 'path', 'summary'],
+  });
+  searchIndex.addAll(entries.map(({ entry, body }) => ({
+    slug: entry.slug,
+    title: entry.title,
+    body,
+    tags: entry.tags.join(' '),
+    summary: entry.summary,
+    section: entry.section,
+    path: entry.path,
+  })));
+  await writeFile(join(outDir, 'search-index.json'), JSON.stringify(searchIndex));
 
   return { manifest, entries, graph, warnings };
 }
