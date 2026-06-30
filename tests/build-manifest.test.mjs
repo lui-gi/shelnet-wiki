@@ -54,9 +54,4 @@ test('raw markdown copied into outDir/content/', async () => {
   });
 });
 
-test('missing required frontmatter throws', async () => {
-  const badDir = new URL('./fixtures-bad-missing', import.meta.url).pathname;
-  // fixture set up inline by writing during the test would muddy this;
-  // for now point at FIXTURES and instead exercise via a one-off file in step 4 if needed.
-  // (Skipped here; covered in negative-case test added in Task 3.)
-});
+test.todo('missing required frontmatter throws (covered in Task 3)');

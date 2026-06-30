@@ -3,7 +3,7 @@
 // and copies markdown into dist/content/. Pure module — no top-level effects.
 // CLI entry at the bottom only runs when called directly.
 import { readdir, readFile, mkdir, writeFile, copyFile, stat } from 'node:fs/promises';
-import { join, relative, dirname, sep } from 'node:path';
+import { join, relative, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 
@@ -52,8 +52,8 @@ export async function buildManifest({ contentDir, outDir }) {
       section: data.section,
       path: data.path,
       tags: data.tags,
-      created: String(data.created || ''),
-      updated: String(data.updated || ''),
+      created: data.created instanceof Date ? data.created.toISOString().slice(0, 10) : String(data.created || ''),
+      updated: data.updated instanceof Date ? data.updated.toISOString().slice(0, 10) : String(data.updated || ''),
       summary: data.summary,
       suggested: data.suggested === true,
     };
