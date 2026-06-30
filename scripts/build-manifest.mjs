@@ -38,6 +38,15 @@ function validate(entry, file) {
   }
 }
 
+const WIKILINK = /\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g;
+
+function extractWikilinks(body) {
+  const out = [];
+  let m;
+  while ((m = WIKILINK.exec(body)) !== null) out.push(m[1].trim());
+  return out;
+}
+
 export async function buildManifest({ contentDir, outDir }) {
   const files = await walkMd(contentDir);
   const seen = new Map(); // slug -> file
@@ -82,7 +91,36 @@ export async function buildManifest({ contentDir, outDir }) {
     suggested,
   };
 
+  const slugSet = new Set(entries.map((e) => e.entry.slug));
+  const warnings = [];
+  const edgeSet = new Set();
+  const edges = [];
+  for (const { entry, body, file } of entries) {
+    for (const target of extractWikilinks(body)) {
+      if (slugSet.has(target)) {
+        const key = `${entry.slug}\0${target}`;
+        if (!edgeSet.has(key)) {
+          edgeSet.add(key);
+          edges.push({ from: entry.slug, to: target });
+        }
+      } else {
+        warnings.push(`unresolved wikilink "${target}" in ${relative(contentDir, file)}`);
+      }
+    }
+  }
+
+  const graph = {
+    nodes: entries.map((e) => ({
+      id: e.entry.slug,
+      title: e.entry.title,
+      section: e.entry.section,
+      tags: e.entry.tags,
+    })),
+    edges,
+  };
+
   await mkdir(outDir, { recursive: true });
+  await writeFile(join(outDir, 'graph.json'), JSON.stringify(graph, null, 2));
   await writeFile(join(outDir, 'manifest.json'), JSON.stringify(manifest, null, 2));
 
   // Copy raw markdown into outDir/content/, preserving structure.
@@ -93,7 +131,7 @@ export async function buildManifest({ contentDir, outDir }) {
     await copyFile(file, dest);
   }
 
-  return { manifest, entries };
+  return { manifest, entries, graph, warnings };
 }
 
 // CLI entry: run only when invoked as a script.
@@ -102,11 +140,12 @@ if (isMain) {
   const here = dirname(fileURLToPath(import.meta.url));
   const repoRoot = join(here, '..');
   try {
-    const { manifest } = await buildManifest({
+    const { manifest, warnings } = await buildManifest({
       contentDir: join(repoRoot, 'content'),
       outDir: join(repoRoot, 'dist'),
     });
     console.log(`built manifest: ${manifest.entries.length} entries`);
+    for (const w of warnings) console.warn(`warn: ${w}`);
   } catch (err) {
     console.error(`build failed: ${err.message}`);
     process.exit(1);
