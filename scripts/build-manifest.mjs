@@ -38,12 +38,11 @@ function validate(entry, file) {
   }
 }
 
-const WIKILINK = /\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g;
-
 function extractWikilinks(body) {
+  const re = /\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g;
   const out = [];
   let m;
-  while ((m = WIKILINK.exec(body)) !== null) out.push(m[1].trim());
+  while ((m = re.exec(body)) !== null) out.push(m[1].trim());
   return out;
 }
 
