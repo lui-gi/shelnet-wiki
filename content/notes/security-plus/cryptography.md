@@ -12,7 +12,7 @@ suggested: true
 
 ## symmetric
 
-symmetric uses the same key on both ends. fast, but you have to get the key to the other side somehow — which is the hard part. AES is the one to know.
+symmetric uses the same key on both ends. fast, but you have to get the key to the other side somehow, which is the hard part. AES is the one to know.
 
 ## asymmetric
 
@@ -24,7 +24,9 @@ one-way. you put a thing in, you get a fixed-length fingerprint out, and you can
 
 ## where each shows up
 
+which one you reach for depends on the job.
+
 - file encryption at rest: symmetric (AES)
-- TLS in flight: asymmetric to agree on a key, then symmetric for the data (see [[tls-handshake]])
+- TLS in flight: asymmetric to agree on a key, then symmetric for the data
 - password storage: hashing (with a salt; usually argon2 or bcrypt)
 - certificates: asymmetric, with a chain of trust (see [[pki]])

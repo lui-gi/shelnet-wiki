@@ -14,7 +14,7 @@ suggested: false
 
 asymmetric crypto (see [[cryptography]]) only works if you know whose public key you're using. on the open internet you have no prior relationship with most servers. PKI is the answer.
 
-## the answer: certificates
+## the answer
 
 a certificate is a public key + identity (domain name, org, etc) + a signature from someone you already trust. that someone is a certificate authority (CA).
 
