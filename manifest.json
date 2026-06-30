@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "generated": "2026-06-30T08:07:05.296Z",
+  "sections": [
+    "notes",
+    "writeups",
+    "guides"
+  ],
+  "entries": [
+    {
+      "title": "intro to linux",
+      "slug": "intro-linux",
+      "section": "guides",
+      "path": "guides/intro-linux",
+      "tags": [
+        "linux",
+        "beginner"
+      ],
+      "created": "2026-05-01",
+      "updated": "2026-06-01",
+      "summary": "where to start with a fresh shell and not get overwhelmed",
+      "suggested": true
+    },
+    {
+      "title": "cryptography",
+      "slug": "cryptography",
+      "section": "notes",
+      "path": "notes/security-plus/cryptography",
+      "tags": [
+        "crypto",
+        "sec-plus"
+      ],
+      "created": "2026-06-12",
+      "updated": "2026-06-29",
+      "summary": "symmetric vs asymmetric, hashing, where each one shows up in the real world",
+      "suggested": true
+    },
+    {
+      "title": "pki",
+      "slug": "pki",
+      "section": "notes",
+      "path": "notes/security-plus/pki",
+      "tags": [
+        "crypto",
+        "sec-plus",
+        "pki"
+      ],
+      "created": "2026-06-14",
+      "updated": "2026-06-20",
+      "summary": "public key infrastructure — how the web decides which keys to trust",
+      "suggested": false
+    },
+    {
+      "title": "tls handshake",
+      "slug": "tls-handshake",
+      "section": "notes",
+      "path": "notes/security-plus/tls-handshake",
+      "tags": [
+        "networking",
+        "crypto",
+        "sec-plus"
+      ],
+      "created": "2026-06-18",
+      "updated": "2026-06-22",
+      "summary": "how two strangers agree on a shared key over a hostile network",
+      "suggested": false
+    },
+    {
+      "title": "htb starting point — meow",
+      "slug": "htb-meow",
+      "section": "writeups",
+      "path": "writeups/htb-starting-point",
+      "tags": [
+        "htb",
+        "writeup",
+        "beginner"
+      ],
+      "created": "2026-05-22",
+      "updated": "2026-05-22",
+      "summary": "telnet root with no password — the gentlest possible introduction to htb",
+      "suggested": true
+    }
+  ],
+  "recent": [
+    "cryptography",
+    "tls-handshake",
+    "pki",
+    "intro-linux",
+    "htb-meow"
+  ],
+  "suggested": [
+    "intro-linux",
+    "cryptography",
+    "htb-meow"
+  ]
+}

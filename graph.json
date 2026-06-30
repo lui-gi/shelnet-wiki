@@ -1,0 +1,74 @@
+{
+  "nodes": [
+    {
+      "id": "intro-linux",
+      "title": "intro to linux",
+      "section": "guides",
+      "tags": [
+        "linux",
+        "beginner"
+      ]
+    },
+    {
+      "id": "cryptography",
+      "title": "cryptography",
+      "section": "notes",
+      "tags": [
+        "crypto",
+        "sec-plus"
+      ]
+    },
+    {
+      "id": "pki",
+      "title": "pki",
+      "section": "notes",
+      "tags": [
+        "crypto",
+        "sec-plus",
+        "pki"
+      ]
+    },
+    {
+      "id": "tls-handshake",
+      "title": "tls handshake",
+      "section": "notes",
+      "tags": [
+        "networking",
+        "crypto",
+        "sec-plus"
+      ]
+    },
+    {
+      "id": "htb-meow",
+      "title": "htb starting point — meow",
+      "section": "writeups",
+      "tags": [
+        "htb",
+        "writeup",
+        "beginner"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "cryptography",
+      "to": "tls-handshake"
+    },
+    {
+      "from": "cryptography",
+      "to": "pki"
+    },
+    {
+      "from": "pki",
+      "to": "cryptography"
+    },
+    {
+      "from": "tls-handshake",
+      "to": "cryptography"
+    },
+    {
+      "from": "tls-handshake",
+      "to": "pki"
+    }
+  ]
+}
