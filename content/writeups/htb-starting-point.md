@@ -1,12 +1,12 @@
 ---
-title: htb starting point — meow
+title: htb starting point, meow
 slug: htb-meow
 section: writeups
 path: writeups/htb-starting-point
 tags: [htb, writeup, beginner]
 created: 2026-05-22
 updated: 2026-05-22
-summary: telnet root with no password — the gentlest possible introduction to htb
+summary: telnet root with no password, the gentlest possible introduction to htb
 suggested: true
 ---
 
@@ -16,7 +16,7 @@ nmap turns up port 23 (telnet) open. nothing else.
 
 ## exploitation
 
-telnet in. log in as `root`. no password. that's it — flag is in `/root/flag.txt`.
+telnet in. log in as `root`. no password. that's it; flag is in `/root/flag.txt`.
 
 ## lesson
 
