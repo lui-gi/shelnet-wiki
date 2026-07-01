@@ -20,7 +20,7 @@ two keys: public and private. anything encrypted with one is decryptable only by
 
 ## hashing
 
-one-way. you put a thing in, you get a fixed-length fingerprint out, and you can't go backward. SHA-256 is the default to reach for. used for integrity, not secrecy.
+one-way. you put a thing in, you get a fixed-length fingerprint out, and you can't go backward. SHA-256 is the default to reach for. used for integrity.
 
 ## where each shows up
 

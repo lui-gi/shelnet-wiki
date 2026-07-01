@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-06-30T17:31:22.601Z",
+  "generated": "2026-07-01T04:55:01.623Z",
   "sections": [
     "notes",
     "writeups",
@@ -22,6 +22,52 @@
       "suggested": true
     },
     {
+      "title": "buffer overflow basics",
+      "slug": "buffer-overflow-basics",
+      "section": "notes",
+      "path": "notes/exploit-dev/buffer-overflow-basics",
+      "tags": [
+        "exploit-dev",
+        "memory",
+        "uscc-2026"
+      ],
+      "created": "2026-06-30",
+      "updated": "2026-06-30",
+      "summary": "writing past a buffer to clobber the return address and hijack control flow",
+      "suggested": false
+    },
+    {
+      "title": "uac, unix-like artifact collector",
+      "slug": "uac-collector",
+      "section": "notes",
+      "path": "notes/linux-forensics/uac-collector",
+      "tags": [
+        "linux-forensics",
+        "incident-response",
+        "tools",
+        "uscc-2026"
+      ],
+      "created": "2026-06-30",
+      "updated": "2026-06-30",
+      "summary": "single-shot live-response collector for nix triage, analysis-first workflow",
+      "suggested": false
+    },
+    {
+      "title": "control types and categories",
+      "slug": "control-types",
+      "section": "notes",
+      "path": "notes/security-plus/control-types",
+      "tags": [
+        "sec-plus",
+        "governance",
+        "controls"
+      ],
+      "created": "2026-06-30",
+      "updated": "2026-06-30",
+      "summary": "every Sec+ control has two labels, a category (what it is) and a function (when it acts)",
+      "suggested": false
+    },
+    {
       "title": "cryptography",
       "slug": "cryptography",
       "section": "notes",
@@ -36,6 +82,68 @@
       "suggested": true
     },
     {
+      "title": "data roles",
+      "slug": "data-roles",
+      "section": "notes",
+      "path": "notes/security-plus/data-roles",
+      "tags": [
+        "sec-plus",
+        "governance",
+        "privacy",
+        "gdpr"
+      ],
+      "created": "2026-06-30",
+      "updated": "2026-06-30",
+      "summary": "owner, controller, processor, custodian; pick the right one off the verb in the question",
+      "suggested": false
+    },
+    {
+      "title": "honeytokens, honeyfiles, honeypots",
+      "slug": "deception-tech",
+      "section": "notes",
+      "path": "notes/security-plus/deception-tech",
+      "tags": [
+        "sec-plus",
+        "deception",
+        "detective-controls"
+      ],
+      "created": "2026-06-30",
+      "updated": "2026-06-30",
+      "summary": "three sizes of decoy, token to file to pot, and how to tell them apart on the exam",
+      "suggested": false
+    },
+    {
+      "title": "email authentication (SPF, DKIM, DMARC)",
+      "slug": "email-authentication",
+      "section": "notes",
+      "path": "notes/security-plus/email-authentication",
+      "tags": [
+        "sec-plus",
+        "email",
+        "authentication",
+        "dns"
+      ],
+      "created": "2026-06-30",
+      "updated": "2026-06-30",
+      "summary": "SPF, DKIM, DMARC, who can send, was it tampered with, what to do on failure",
+      "suggested": false
+    },
+    {
+      "title": "incident response phases",
+      "slug": "incident-response-phases",
+      "section": "notes",
+      "path": "notes/security-plus/incident-response-phases",
+      "tags": [
+        "sec-plus",
+        "incident-response",
+        "governance"
+      ],
+      "created": "2026-06-30",
+      "updated": "2026-06-30",
+      "summary": "the seven NIST IR phases, what each one actually means, and the traps Sec+ uses to swap them",
+      "suggested": false
+    },
+    {
       "title": "pki",
       "slug": "pki",
       "section": "notes",
@@ -47,7 +155,7 @@
       ],
       "created": "2026-06-14",
       "updated": "2026-06-20",
-      "summary": "public key infrastructure — how the web decides which keys to trust",
+      "summary": "public key infrastructure, how the web decides which keys to trust",
       "suggested": false
     },
     {
@@ -66,7 +174,7 @@
       "suggested": false
     },
     {
-      "title": "htb starting point — meow",
+      "title": "htb starting point, meow",
       "slug": "htb-meow",
       "section": "writeups",
       "path": "writeups/htb-starting-point",
@@ -77,16 +185,21 @@
       ],
       "created": "2026-05-22",
       "updated": "2026-05-22",
-      "summary": "telnet root with no password — the gentlest possible introduction to htb",
+      "summary": "telnet root with no password, the gentlest possible introduction to htb",
       "suggested": true
     }
   ],
   "recent": [
+    "incident-response-phases",
+    "email-authentication",
+    "deception-tech",
+    "data-roles",
+    "control-types",
+    "uac-collector",
+    "buffer-overflow-basics",
     "cryptography",
     "tls-handshake",
-    "pki",
-    "intro-linux",
-    "htb-meow"
+    "pki"
   ],
   "suggested": [
     "intro-linux",

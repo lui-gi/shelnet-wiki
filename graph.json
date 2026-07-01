@@ -10,12 +10,85 @@
       ]
     },
     {
+      "id": "buffer-overflow-basics",
+      "title": "buffer overflow basics",
+      "section": "notes",
+      "tags": [
+        "exploit-dev",
+        "memory",
+        "uscc-2026"
+      ]
+    },
+    {
+      "id": "uac-collector",
+      "title": "uac, unix-like artifact collector",
+      "section": "notes",
+      "tags": [
+        "linux-forensics",
+        "incident-response",
+        "tools",
+        "uscc-2026"
+      ]
+    },
+    {
+      "id": "control-types",
+      "title": "control types and categories",
+      "section": "notes",
+      "tags": [
+        "sec-plus",
+        "governance",
+        "controls"
+      ]
+    },
+    {
       "id": "cryptography",
       "title": "cryptography",
       "section": "notes",
       "tags": [
         "crypto",
         "sec-plus"
+      ]
+    },
+    {
+      "id": "data-roles",
+      "title": "data roles",
+      "section": "notes",
+      "tags": [
+        "sec-plus",
+        "governance",
+        "privacy",
+        "gdpr"
+      ]
+    },
+    {
+      "id": "deception-tech",
+      "title": "honeytokens, honeyfiles, honeypots",
+      "section": "notes",
+      "tags": [
+        "sec-plus",
+        "deception",
+        "detective-controls"
+      ]
+    },
+    {
+      "id": "email-authentication",
+      "title": "email authentication (SPF, DKIM, DMARC)",
+      "section": "notes",
+      "tags": [
+        "sec-plus",
+        "email",
+        "authentication",
+        "dns"
+      ]
+    },
+    {
+      "id": "incident-response-phases",
+      "title": "incident response phases",
+      "section": "notes",
+      "tags": [
+        "sec-plus",
+        "incident-response",
+        "governance"
       ]
     },
     {
@@ -40,7 +113,7 @@
     },
     {
       "id": "htb-meow",
-      "title": "htb starting point — meow",
+      "title": "htb starting point, meow",
       "section": "writeups",
       "tags": [
         "htb",
@@ -51,11 +124,27 @@
   ],
   "edges": [
     {
+      "from": "control-types",
+      "to": "cryptography"
+    },
+    {
+      "from": "control-types",
+      "to": "pki"
+    },
+    {
       "from": "cryptography",
       "to": "tls-handshake"
     },
     {
       "from": "cryptography",
+      "to": "pki"
+    },
+    {
+      "from": "email-authentication",
+      "to": "cryptography"
+    },
+    {
+      "from": "email-authentication",
       "to": "pki"
     },
     {

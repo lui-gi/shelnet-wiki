@@ -6,7 +6,7 @@ path: notes/security-plus/pki
 tags: [crypto, sec-plus, pki]
 created: 2026-06-14
 updated: 2026-06-20
-summary: public key infrastructure — how the web decides which keys to trust
+summary: public key infrastructure, how the web decides which keys to trust
 suggested: false
 ---
 
@@ -16,7 +16,7 @@ asymmetric crypto (see [[cryptography]]) only works if you know whose public key
 
 ## the answer
 
-a certificate is a public key + identity (domain name, org, etc) + a signature from someone you already trust. that someone is a certificate authority (CA).
+a certificate is a public key + identity (domain name, org, validity dates) + a signature from someone you already trust. that someone is a certificate authority (CA).
 
 ## the chain
 
