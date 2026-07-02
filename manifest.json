@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-07-01T04:55:01.623Z",
+  "generated": "2026-07-02T07:21:32.394Z",
   "sections": [
     "notes",
     "writeups",
@@ -20,6 +20,22 @@
       "updated": "2026-06-01",
       "summary": "where to start with a fresh shell and not get overwhelmed",
       "suggested": true
+    },
+    {
+      "title": "cysa+ study curriculum",
+      "slug": "exam-map",
+      "section": "notes",
+      "path": "notes/cysa-plus/exam-map",
+      "tags": [
+        "cysa-plus",
+        "exam-prep",
+        "roadmap",
+        "curriculum"
+      ],
+      "created": "2026-07-02",
+      "updated": "2026-07-02",
+      "summary": "concept-sequenced cysa+ curriculum, 15 units mapped back to CS0-003 objectives",
+      "suggested": false
     },
     {
       "title": "buffer overflow basics",
@@ -190,6 +206,7 @@
     }
   ],
   "recent": [
+    "exam-map",
     "incident-response-phases",
     "email-authentication",
     "deception-tech",
@@ -198,8 +215,7 @@
     "uac-collector",
     "buffer-overflow-basics",
     "cryptography",
-    "tls-handshake",
-    "pki"
+    "tls-handshake"
   ],
   "suggested": [
     "intro-linux",

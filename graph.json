@@ -10,6 +10,17 @@
       ]
     },
     {
+      "id": "exam-map",
+      "title": "cysa+ study curriculum",
+      "section": "notes",
+      "tags": [
+        "cysa-plus",
+        "exam-prep",
+        "roadmap",
+        "curriculum"
+      ]
+    },
+    {
       "id": "buffer-overflow-basics",
       "title": "buffer overflow basics",
       "section": "notes",
@@ -123,6 +134,10 @@
     }
   ],
   "edges": [
+    {
+      "from": "exam-map",
+      "to": "incident-response-phases"
+    },
     {
       "from": "control-types",
       "to": "cryptography"
